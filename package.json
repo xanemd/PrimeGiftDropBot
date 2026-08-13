@@ -6,10 +6,10 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon src/index.js",
-    "build": "node ./node_modules/prisma/build/index.js generate && npx tsc",
+    "build": "npx prisma generate && npx tsc",
     "dev:admin": "cd admin && npm run dev",
     "build:admin": "cd admin && npm run build",
-    "postinstall": "node ./node_modules/prisma/build/index.js generate",
+    "postinstall": "npx prisma generate",
     "railway:build": "npm run build"
   },
   "dependencies": {
@@ -41,6 +41,11 @@
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
+  },
+  "overrides": {
+    "prisma": "5.22.0",
+    "@prisma/client": "5.22.0",
+    "@prisma/engines": "5.22.0"
   },
   "engines": {
     "node": ">=18.0.0"
